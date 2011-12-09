@@ -1,0 +1,248 @@
+Core Object Types:
+==================
+Addon, AddonLoader, Block, Break, CFunction, CLI, Call, Collector, Compiler, Continue, Coroutine, Date, Debugger, Directory, Duration, DynLib, Eol, Error, Exception, File, Future, FutureProxy, ImmutableSequence, Importer, List, Locals, Map, Message, Normal, Notifier, Number, Object, OperatorTable, Path, Return, Sandbox, Scheduler, Sequence, SerializationStream, String, System, TestSuite, UnitTest, Vector, WeakLink, false, nil, true, vector
+
+Addon
+=====
+Slots: addonPath, addonProtos, dependencies, dllName, dllPath, dllSuffix, exists, ioFiles, load, loadDependencies, name, platform, rootPath, setName, setRootPath, sourcePath, type
+Ancestry: Addon > Object
+
+AddonLoader
+===========
+Slots: addonFor, addons, appendSearchPath, hasAddonNamed, loadAddonNamed, searchPaths, type
+Ancestry: AddonLoader > Object
+
+Block
+=====
+Slots: Formatter, argumentNames, asSimpleString, asString, call, code, justSerialized, message, passStops, performOn, print, println, scope, setArgumentNames, setMessage, setPassStops, setScope
+Ancestry: Block > Object
+
+Break
+=====
+Slots: isBreak, stopLooping, type
+Ancestry: Break > Object
+
+CFunction
+=========
+Slots: ==, asSimpleString, asString, id, name, performOn, type, typeName, uniqueName
+Ancestry: CFunction > Object
+
+CLI
+===
+Slots: commandLineLabel, compileErrorMessage, context, continuedLinePrompt, errorMessage, handleInteractiveMultiline, interactive, interactiveMultiline, interactiveNoLineReader, ioHistoryFile, isRunning, knownErrorMissingArgument, knownErrors, lineReader, loadHistory, outPrompt, prompt, run, runFile, runIorc, saveHistory, setCommandLineLabel, setContext, setContinuedLinePrompt, setIsRunning, setLineReader, setOutPrompt, setPrompt, stop, type, writeCommandResult, writeWelcomeBanner
+Ancestry: CLI > Object
+
+Call
+====
+Slots: activated, argAt, argCount, coroutine, delegateTo, delegateToMethod, description, evalArgAt, evalArgs, hasArgs, message, relayStopStatus, resetStopStatus, sender, setStopStatus, slotContext, stopStatus, target
+Ancestry: Call > Object
+
+Collector
+=========
+Slots: allObjects, allocatedStep, allocsPerSweep, check, checkMemory, checkObjectPointers, cleanAllObjects, collect, dirtyObjects, marksPerAlloc, maxAllocatedBytes, objectWithUniqueId, resetMaxAllocatedBytes, setAllocatedStep, setAllocsPerSweep, setDebug, setMarksPerAlloc, setSafeModeOn, showStats, timeUsed, type
+Ancestry: Collector > Object
+
+Compiler
+========
+Slots: messageForString, messageForString2, tokensForString, type
+Ancestry: Compiler > Object
+
+Continue
+========
+Slots: isContinue, type
+Ancestry: Continue > Object
+
+Coroutine
+=========
+Slots: backTraceString, callStack, currentCoroutine, debugWriteln, exception, freeStack, ignoredCoroutineMethodNames, implementation, inException, ioStack, isCurrent, isYielding, label, main, parentCoroutine, pause, pauseCurrentAndResumeSelf, raiseException, result, resume, resumeLater, resumeParentCoroutine, run, runLocals, runMessage, runTarget, setException, setInException, setLabel, setMessageDebugging, setParentCoroutine, setResult, setRunLocals, setRunMessage, setRunTarget, setStackSize, setYieldingCoros, showStack, showYielding, stackSize, typeId, yield, yieldCurrentAndResumeSelf, yieldingCoros
+Ancestry: Coroutine > Object
+
+Date
+====
+Slots: +, +=, -, -=, asAtomDate, asJson, asNumber, asNumberString, asSerialization, asString, clock, convertToLocal, convertToUTC, copy, cpuSecondsToRun, day, format, fromNumber, fromSerialization, fromString, gmtOffset, gmtOffsetSeconds, hour, isDaylightSavingsTime, isPast, isToday, isValidTime, justSerialized, minute, month, now, print, second, secondsSince, secondsSinceNow, secondsToRun, setDay, setHour, setMinute, setMonth, setSecond, setToUTC, setYear, timeStampString, today, year, zone
+Ancestry: Date > Object
+
+Debugger
+========
+Slots: debuggerCoroutine, start, type, vmWillSendMessage
+Ancestry: Debugger > Object
+
+Directory
+=========
+Slots: accessibleAncestors, accessibleParents, ancestorDirectories, at, create, createFileNamed, createIfAbsent, createSubdirectory, currentWorkingDirectory, directories, directoryNamed, exists, fileNamed, fileNames, files, filesWithExtension, folderNamed, folderNamedCreateIfAbsent, folders, isAccessible, items, moveTo, name, parentDirectory, parents, path, recursiVeFilesOfTypes, remove, setCurrentWorkingDirectory, setPath, size, with
+Ancestry: Directory > Object
+
+Duration
+========
+Slots: +, +=, -, -=, asNumber, asString, days, fromNumber, hours, minutes, print, seconds, setDays, setHours, setMinutes, setSeconds, setYears, totalSeconds, years
+Ancestry: Duration > Object
+
+DynLib
+======
+Slots: call, callPluginInit, close, freeFuncName, init, initFuncName, isOpen, open, path, setFreeFuncName, setInitFuncName, setPath, voidCall
+Ancestry: DynLib > Object
+
+Eol
+===
+Slots: type
+Ancestry: Eol > Object
+
+Error
+=====
+Slots: ifError, isError, raiseIfError, returnIfError, with, withShow
+Ancestry: Error > Object
+
+Exception
+=========
+Slots: catch, caughtMessage, coroutine, error, nestedException, originalCall, pass, raise, raiseFrom, setCaughtMessage, setCoroutine, setError, setNestedException, setOriginalCall, showStack, type
+Ancestry: Exception > Object
+
+File
+====
+Slots: appendToContents, asBuffer, at, atPut, baseName, close, containingDirectory, contents, copyToPath, copyToPathWithoutYielding, create, descriptor, exists, exitStatus, flush, foreach, foreachLine, groupId, isAtEnd, isDirectory, isLink, isOpen, isPipe, isRegularFile, isSocket, isUserExecutable, lastAccessDate, lastDataChangeDate, lastInfoChangeDate, mode, moveTo, name, open, openForAppending, openForReading, openForUpdating, parentDirectory, path, popen, position, positionAtEnd, protectionMode, readBufferOfLength, readLine, readLines, readStringOfLength, readToBufferLength, readToEnd, remove, reopen, rewind, setContents, setPath, setPosition, setStreamDestination, size, standardError, standardInput, standardOutput, startStreaming, stat, streamDestination, streamReadSize, streamTo, streamToWithoutYielding, temporaryFile, thisSourceFile, truncateToSize, userId, with, write
+Ancestry: File > Object
+
+Future
+======
+Slots: futureProxy, runMessage, runTarget, setResult, setRunMessage, setRunTarget, setWaitingCoros, type, waitOnResult, waitingCoros
+Ancestry: Future > Object
+
+FutureProxy
+===========
+Slots: _forward, type, with
+Ancestry: FutureProxy > Object
+
+ImmutableSequence
+=================
+Slots: type
+Ancestry: ImmutableSequence > Sequence > Object
+
+Importer
+========
+Slots: AddonImporter, FileImporter, addSearchPath, autoImportingForward, import, importers, paths, removeSearchPath, turnOff, turnOn, type
+Ancestry: Importer > Object
+
+List
+====
+Slots: ListCursor, anyOne, append, appendIfAbsent, appendSeq, asEncodedList, asJson, asMap, asMessage, asSimpleString, asString, at, atInsert, atPut, average, capacity, contains, containsAll, containsAny, containsIdenticalTo, copy, cursor, detect, difference, empty, exSlice, first, flatten, foreach, fromEncodedList, groupBy, indexOf, insertAfter, insertAt, insertBefore, intersect, isEmpty, isNotEmpty, itemCopy, join, justSerialized, last, map, mapFromKey, mapInPlace, max, min, pop, preallocateToSize, prepend, push, reduce, remove, removeAll, removeAt, removeFirst, removeLast, removeSeq, rest, reverse, reverseForeach, reverseInPlace, reverseReduce, second, select, selectInPlace, setSize, shuffle, shuffleInPlace, size, slice, sliceInPlace, sort, sortBy, sortByKey, sortInPlace, sortInPlaceBy, sortKey, sum, swapIndices, third, union, unique, uniqueCount, with
+Ancestry: List > Object
+
+Object
+======
+Slots: , !=, -, <, <=, ==, >, >=, ancestorWithSlot, appendProto, argIsActivationRecord, argIsCall, become, block, break, clone, cloneWithoutInit, compare, contextWithSlot, continue, do, doFile, doMessage, doString, evalArg, evalArgAndReturnNil, evalArgAndReturnSelf, for, foreachSlot, forward, getLocalSlot, getSlot, hasDirtySlot, hasLocalSlot, hasProto, if, init, isActivatable, isIdenticalTo, loop, markClean, memorySize, message, method, ownsSlots, perform, performWithArgList, prependProto, print, proto, protos, removeAllProtos, removeAllSlots, removeProto, removeSlot, return, returnIfNonNil, setIsActivatable, setProto, setProtos, setSlot, setSlotWithType, shallowCopy, slotNames, slotValues, stopStatus, tailCall, thisContext, thisLocalContext, thisMessage, type, uniqueId, updateSlot, while, write, writeln
+Ancestry: Object
+
+Map
+===
+Slots: addKeysAndValues, asJson, asList, asObject, at, atIfAbsentPut, atPut, detect, empty, foreach, hasKey, hasValue, justSerialized, keys, map, merge, mergeInPlace, removeAt, reverseMap, select, size, values, with
+Ancestry: Map > Object
+
+Message
+=======
+Slots: OperatorTable, appendArg, appendCachedArg, argAt, argCount, argsEvaluatedIn, arguments, asMessageWithEvaluatedArgs, asSimpleString, asStackEntry, asString, cachedResult, characterNumber, clone, code, codeOfLength, description, doInContext, fromString, hasCachedResult, isEndOfLine, label, last, lastBeforeEndOfLine, lineNumber, name, next, nextIgnoreEndOfLines, opShuffle, opShuffleC, previous, removeCachedResult, setArguments, setCachedResult, setCharacterNumber, setLabel, setLineNumber, setName, setNext, union
+Ancestry: Message > Object
+
+Normal
+======
+Slots: isBreak, isContinue, isReturn, return, stopLooping, type
+Ancestry: Normal > Object
+
+Notifier
+========
+Slots: addListener, notifyListeners, removeListener, type
+Ancestry: Notifier > Object
+
+Number
+======
+Slots: %, &, *, **, +, -, /, <<, >>, ^, abs, acos, asBinary, asBuffer, asCharacter, asHex, asJson, asLowercase, asNumber, asOctal, asSimpleString, asString, asUint32Buffer, asUppercase, asin, at, atan, atan2, between, bitwiseAnd, bitwiseComplement, bitwiseOr, bitwiseXor, ceil, clip, combinations, constants, cos, cubed, exp, factorial, floatMax, floatMin, floor, integerMax, integerMin, isAlphaNumeric, isControlCharacter, isDigit, isEven, isGraph, isHexDigit, isInASequenceSet, isLetter, isLowercase, isNan, isOdd, isPrint, isPunctuation, isSpace, isUppercase, justSerialized, log, log10, log2, longMax, longMin, max, min, minMax, mod, negate, permutations, pow, repeat, round, roundDown, shiftLeft, shiftRight, shortMax, shortMin, sin, sqrt, squared, tan, toBase, toBaseWholeBytes, toggle, unsignedIntMax, unsignedLongMax, |
+Ancestry: Number > Object
+
+Object
+======
+Slots: , !=, -, .., <, <=, ==, >, >=, ?, @, @@, actorProcessQueue, actorRun, ancestorWithSlot, ancestors, and, appendProto, apropos, argIsActivationRecord, argIsCall, asSimpleString, asString, become, block, break, clone, cloneWithoutInit, compare, contextWithSlot, continue, coroDo, coroDoLater, coroFor, coroWith, currentCoro, deprecatedWarning, do, doFile, doMessage, doRelativeFile, doString, evalArg, evalArgAndReturnNil, evalArgAndReturnSelf, for, foreachSlot, getLocalSlot, getSlot, handleActorException, hasDirtySlot, hasLocalSlot, hasProto, hasSlot, if, ifError, ifNil, ifNilEval, ifNonNil, ifNonNilEval, in, init, inlineMethod, isActivatable, isError, isIdenticalTo, isKindOf, isLaunchScript, isNil, isTrue, justSerialized, launchFile, lazySlot, list, loop, markClean, memorySize, message, method, newSlot, not, or, ownsSlots, pause, perform, performWithArgList, prependProto, print, println, proto, protos, raiseIfError, relativeDoFile, removeAllProtos, removeAllSlots, removeProto, removeSlot, resend, return, returnIfError, returnIfNonNil, serialized, serializedSlots, serializedSlotsWithNames, setIsActivatable, setProto, setProtos, setSlot, setSlotWithType, shallowCopy, slotDescriptionMap, slotNames, slotSummary, slotValues, stopStatus, super, switch, tailCall, thisContext, thisLocalContext, thisMessage, try, type, uniqueHexId, uniqueId, updateSlot, wait, while, write, writeln, yield
+Ancestry: Object
+
+OperatorTable
+=============
+Slots: addAssignOperator, addOperator, asString, assignOperators, operators, precedenceLevelCount, reverseAssignOperators, type
+Ancestry: OperatorTable > Object
+
+Path
+====
+Slots: absolute, hasDriveLetters, isPathAbsolute, thisSourceFilePath, type, with
+Ancestry: Path > Object
+
+Return
+======
+Slots: isReturn, return, stopLooping, type
+Ancestry: Return > Object
+
+Sandbox
+=======
+Slots: doSandboxString, messageCount, printCallback, setMessageCount, setTimeLimit, timeLimit
+Ancestry: Sandbox > Object
+
+Scheduler
+=========
+Slots: currentCoroutine, setTimers, setYieldingCoros, timers, type, waitForCorosToComplete, yieldingCoros
+Ancestry: Scheduler > Object
+
+Sequence
+========
+Slots: *, *=, +, +=, -, -=, .., /, /=, <, <=, >, >=, Max, Min, abs, acos, addEquals, afterSeq, alignCenter, alignLeft, alignLeftInPlace, alignRight, append, appendPathSeq, appendSeq, asBase64, asBinaryNumber, asBinarySignedInteger, asBinaryUnsignedInteger, asBuffer, asCapitalized, asDecodedList, asFile, asFixedSizeType, asHex, asIoPath, asJson, asLowercase, asMessage, asMutable, asNumber, asOSPath, asSimpleString, asString, asStruct, asSymbol, asUCS2, asUCS4, asUTF8, asUppercase, asin, at, atInsertSeq, atPut, atan, beforeSeq, beginsWithSeq, between, betweenSeq, bitAt, bitCount, bitwiseAnd, bitwiseNot, bitwiseOr, bitwiseXor, byteAt, cPrint, capitalize, ceil, clipAfterSeq, clipAfterStartOfSeq, clipBeforeEndOfSeq, clipBeforeSeq, cloneAppendPath, cloneAppendSeq, contains, containsAnyCaseSeq, containsSeq, convertToFixedSizeType, convertToItemType, copy, cos, cosh, distanceTo, dotProduct, duplicateIndexes, empty, encoding, endsWithSeq, escape, exSlice, exclusiveSlice, fileName, findNthSeq, findSeq, findSeqs, floor, foreach, fromBase, fromBase64, hash, inSlice, inclusiveSlice, insertSeqEvery, interpolate, interpolateInPlace, isEmpty, isEqualAnyCase, isLowercase, isMutable, isSymbol, isUppercase, isZero, itemCopy, itemSize, itemType, justSerialized, lastPathComponent, leaveThenRemove, linePrint, log, log10, logicalOr, lowercase, lstrip, makeFirstCharacterLowercase, makeFirstCharacterUppercase, max, mean, meanSquare, min, negate, normalize, occurancesOfSeq, orderedSplit, pathComponent, pathExtension, preallocateToSize, prependSeq, print, product, rangeFill, removeAt, removeEvenIndexes, removeLast, removeOddIndexes, removePrefix, removeSeq, removeSlice, removeSuffix, repeated, replaceFirstSeq, replaceMap, replaceSeq, reverse, reverseFindSeq, reverseInPlace, rootMeanSquare, rstrip, sequenceSets, set, setEncoding, setItemType, setItemsToDouble, setItemsToLong, setSize, setX, setY, setZ, sin, sinh, size, sizeInBytes, slice, slicesBetween, sort, split, splitAt, splitNoEmpties, sqrt, square, strip, sum, tan, tanh, toBase, translate, unescape, uppercase, validEncodings, validItemTypes, whiteSpaceStrings, with, withStruct, x, y, z, zero
+Ancestry: Sequence > Object
+
+SerializationStream
+===================
+Slots: init, type, write
+Ancestry: SerializationStream > Object
+
+ImmutableSequence
+=================
+Slots: type
+Ancestry: ImmutableSequence > Sequence > Object
+
+System
+======
+Slots: activeCpus, args, daemon, errorNumber, exit, getEnvironmentVariable, getOptions, installPrefix, ioPath, launchPath, launchScript, maxRecycledObjects, platform, platformVersion, recycledObjectCount, runCommand, setEnvironmentVariable, setLobby, setMaxRecycledObjects, sleep, symbols, system, thisProcessPid, type, userInterruptHandler, version
+Ancestry: System > Object
+
+TestSuite
+=========
+Slots: name, path, run, setPath, type, verbose
+Ancestry: TestSuite > Object
+
+UnitTest
+========
+Slots: assertEquals, assertEqualsWithinDelta, assertFalse, assertNil, assertNotEquals, assertNotNil, assertNotSame, assertRaisesException, assertSame, assertTrue, fail, init, knownBug, run, setUp, tearDown, testCount, testSlotNames, type, verbose
+Ancestry: UnitTest > Object
+
+Vector
+======
+Slots: type
+Ancestry: Vector > Sequence > Object
+
+WeakLink
+========
+Slots: link, setLink
+Ancestry: WeakLink > Object
+
+false
+=====
+Slots: and, asSimpleString, asString, clone, else, elseif, ifFalse, ifTrue, isTrue, justSerialized, not, or, then, type
+Ancestry: false > Object
+
+nil
+===
+Slots: and, asSimpleString, asString, catch, clone, else, elseif, ifNil, ifNilEval, ifNonNil, ifNonNilEval, isNil, isTrue, justSerialized, not, or, pass, then, type
+Ancestry: nil > Object
+
+true
+====
+Slots: asSimpleString, asString, clone, else, elseif, ifFalse, ifTrue, justSerialized, not, or, then, type
+Ancestry: true > Object
+
+Vector
+======
+Slots: 
+Ancestry: Vector > Vector > Sequence > Object
