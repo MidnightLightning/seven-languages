@@ -12,30 +12,29 @@ can_run_concurrently(Event1, Event2) :-
 	event_students(Event1, Students1), % There are valid students for event 1
 	event_students(Event2, Students2), % and event 2
 	Event1 \= Event2, % Not the same event
-	sort([Event1, Event2], [Event1, Event2]), % and they're in alphabetical order
+	Event1 @=< Event2, % and they're in alphabetical order
 	exclusive_students(Students1, Students2). % and their students don't overlap
-
-triple(A,B,C) :-
-	
 
 exclusive_students([], _).
 exclusive_students([Head|Tail], S2) :-
 	not(member(Head, S2)),
 	exclusive_students(Tail, S2).
 
-valid_slot([Event]) :- event_students(Event, _). % Single-element slot is valid if it's an event
-valid_slot([Event1, Event2]) :-	can_run_concurrently(Event1, Event2). % Two-element slot is valid if they can be concurrent
-valid_slot([Event1, Event2|Tail]) :- % three-or-more element slot is valid if...
-	can_run_concurrently(Event1, Event2),
-	valid_slot(Tail).
+valid_slot(Events) :-
+	can_run_concurrently(Event1, Event2), % Pick a random two events that can run together
+	valid_slot([Event1, Event2], Events).
+	
+valid_slot(Events, Events).
+valid_slot([Event|Tail], Events) :-
+	can_run_concurrently(NewEvent, Event),
+	\+ member(NewEvent, Tail),
+	forall(member(Existing, Tail), can_run_concurrently(NewEvent, Existing)),
+	valid_slot([NewEvent,Event|Tail], Events).
 
 valid_schedule([Slot]) :- % one-slot schedule is only possible if...
 	valid_slot(Slot),
 	findall(Name, event_students(Name, _), Events),
 	subset(Events, Slot). % ...all events are present in the slot
-valid_schedule([Slot1, Slot2]) :- % two-slot schedule is only possible if...
-	valid_slot(Slot1),
-	valid_slot(Slot2),
-	findall(Name, event_students(Name, _), Events),
-	union(Slot1, Slot2, Events). % ...all events are present in the two slots combined
 	
+valid_schedule([Slot1, Slot2]) :- % two-slot schedule is only possible if...
+	fail. % TODO
